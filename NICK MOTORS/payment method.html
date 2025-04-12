@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Methods | Tokaidō Motors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #E31937;
+            --secondary: #000000;
+            --accent: #F8F1E5;
+            --text: #333333;
+            --light: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Payment Methods Section */
+        .payment-methods {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .method-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .method-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .method-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .method-card p {
+            margin-bottom: 20px;
+        }
+        
+        .method-details {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .method-details ul {
+            list-style-position: inside;
+            margin-bottom: 15px;
+        }
+        
+        .method-details li {
+            margin-bottom: 8px;
+        }
+        
+        /* Payment Process Section */
+        .payment-process {
+            background-color: var(--accent);
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        /* Calculator Section */
+        .calculator-section {
+            background-color: var(--light);
+            padding: 60px 0;
+            margin-bottom: 60px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .calculator-form {
+            background-color: var(--accent);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .calculator-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .calculate-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        .calculate-btn:hover {
+            background-color: #c0102c;
+        }
+        
+        .calculator-results {
+            padding: 30px;
+        }
+        
+        .calculator-results h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        /* Currency Converter */
+        .converter-section {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 60px;
+        }
+        
+        .converter-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .converter-form {
+            display: grid;
+            grid-template-columns: 2fr 1fr 2fr;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .converter-form input,
+        .converter-form select {
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+        }
+        
+        .converter-form .swap-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .converter-rate {
+            text-align: right;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 60px;
+        }
+        
+        .faq-item {
+            background-color: var(--light);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        /* Contact Form Section */
+        .contact-section {
+            background-color: var(--accent);
+            padding: 60px 0;
+            margin-bottom: 60px;
+            border-radius: 8px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            padding: 20px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .contact-info ul {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .contact-form {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .contact-form textarea {
+            height: 120px;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background-color: #c0102c;
+        }
+        
+        /* Download Section */
+        .download-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .download-card {
+            display: inline-block;
+            background-color: var(--light);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 600px;
+        }
+        
+        .download-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        .download-btn:hover {
+            background-color: #c0102c;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--light);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: var(--light);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--light);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .calculator-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .converter-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .converter-form {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .converter-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .converter-form .swap-btn {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="data:image/jpeg;base64,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" alt="Tokaidō Motors Logo">
+                <div class="logo-text">NICK <span>MOTORS</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="Vehicles.html">Home</a></li>
+                    <li><a href="inventory.html">Inventory</a></li>
+                    <li><a href="how to buy.html">How to Buy</a></li>
+                    <li><a href="payment method.html">Payment</a></li>
+                    <li><a href="shipping.html">Shipping</a></li>
+                    <li><a href="About us.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Payment Methods</h1>
+            <p>Secure and convenient payment options for your vehicle purchase from Japan</p>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section class="payment-methods">
+        <div class="container">
+            <div class="section-title">
+                <h2>Available Payment Options</h2>
+            </div>
+            
+            <div class="methods-grid">
+                <!-- Payment method cards same as before -->
+                <!-- ... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Process Section -->
+    <section class="payment-process">
+        <div class="container">
+            <!-- Process steps same as before -->
+            <!-- ... -->
+        </div>
+    </section>
+
+    <!-- Payment Calculator Section -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Payment Calculator</h2>
+                <p>Estimate your total costs including fees and shipping</p>
+            </div>
+            
+            <div class="calculator-grid">
+                <div class="calculator-form">
+                    <h3>Calculate Your Payment</h3>
+                    <form id="paymentCalculator">
+                        <div class="form-group">
+                            <label for="vehiclePrice">Vehicle Price (USD)</label>
+                            <input type="number" id="vehiclePrice" placeholder="e.g. 25000" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="paymentMethod">Payment Method</label>
+                            <select id="paymentMethod" required>
+                                <option value="">Select Method</option>
+                                <option value="bank">Bank Transfer</option>
+                                <option value="lc">Letter of Credit</option>
+                                <option value="paypal">PayPal</option>
+                                <option value="escrow">Escrow Service</option>
+                                <option value="crypto">Cryptocurrency</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="shippingCountry">Shipping Destination</label>
+                            <select id="shippingCountry" required>
+                                <option value="">Select Country</option>
+                                <option value="us">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="uae">United Arab Emirates</option>
+                                <option value="za">South Africa</option>
+                                <option value="ke">Kenya</option>
+                                <option value="ng">Nigeria</option>
+                                <option value="au">Australia</option>
+                                <option value="nz">New Zealand</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="calculate-btn">Calculate Total</button>
+                    </form>
+                </div>
+                
+                <div class="calculator-results">
+                    <h3>Estimated Costs</h3>
+                    <div id="calculatorResults">
+                        <div class="result-item">
+                            <span>Vehicle Price:</span>
+                            <span id="basePrice">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Payment Fees:</span>
+                            <span id="paymentFees">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Shipping Cost:</span>
+                            <span id="shippingCost">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Import Duty:</span>
+                            <span id="importDuty">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Total Estimated Cost:</span>
+                            <span id="totalCost">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Currency Converter Section -->
+    <section class="container">
+        <div class="converter-section">
+            <div class="converter-grid">
+                <div>
+                    <h3>Currency Converter</h3>
+                    <p>Check current exchange rates for your payment</p>
+                </div>
+                <div class="converter-form">
+                    <input type="number" id="amount" placeholder="Amount" value="1000">
+                    <select id="fromCurrency">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="JPY">JPY</option>
+                        <option value="AED">AED</option>
+                        <option value="ZAR">ZAR</option>
+                        <option value="KES">KES</option>
+                        <option value="NGN">NGN</option>
+                        <option value="AUD">AUD</option>
+                        <option value="NZD">NZD</option>
+                    </select>
+                    
+                    <button class="swap-btn" id="swapCurrencies"><i class="fas fa-exchange-alt"></i></button>
+                    
+                    <select id="toCurrency">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP" selected>GBP</option>
+                        <option value="JPY">JPY</option>
+                        <option value="AED">AED</option>
+                        <option value="ZAR">ZAR</option>
+                        <option value="KES">KES</option>
+                        <option value="NGN">NGN</option>
+                        <option value="AUD">AUD</option>
+                        <option value="NZD">NZD</option>
+                    </select>
+                    
+                    <input type="number" id="result" placeholder="Result" readonly>
+                </div>
+                <div class="converter-rate" id="exchangeRate">
+                    Exchange rate: 1 USD = 0.85 GBP
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <!-- FAQ items same as before -->
+            <!-- ... -->
+        </div>
+    </section>
+
+    <!-- Contact Specialists Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Our Payment Specialists</h2>
+                <p>Have questions about payment? Our team is here to help</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Payment Support Team</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone:</strong><br>
+                                +254114963959 (Payment Dept.)
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email:</strong><br>
+                                payments@nickmotors.com
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Hours:</strong><br>
+                                Mon-Fri: 8AM-5PM JST<br>
+                                Sat: 9AM-1PM JST
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-headset"></i>
+                            <div>
+                                <strong>Live Chat:</strong><br>
+                                Available during business hours
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="paymentContactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Payment Method Inquiry</option>
+                                <option>Bank Transfer</option>
+                                <option>Letter of Credit</option>
+                                <option>PayPal</option>
+                                <option>Escrow Service</option>
+                                <option>Cryptocurrency</option>
+                                <option>Financing</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required>I have a question about...</textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Guide Section -->
+    <section class="download-section">
+        <div class="container">
+            <div class="download-card">
+                <div class="download-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <h3>Download Our Payment Guide</h3>
+                <p>Get our comprehensive guide to payment methods, fees, and step-by-step instructions for completing your transaction securely.</p>
+                <a href="Nick Motors.pdf" download="Nick-Motors-Payment-Guide.pdf">
+                    <i class="fas fa-download"></i> Download PDF (196KB) 
+                </a>
+                   
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Tokaidō Motors</h3>
+                    <p>Exporting quality Japanese vehicles worldwide with transparency and reliability.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="Vehicles.html">Home</a></li>
+                        <li><a href="inventory.html">Inventory</a></li>
+                        <li><a href="how to buy.html">How to Buy</a></li>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                        <li><a href="payment method.html">Payment Methods</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Vehicle Types</h3>
+                    <ul>
+                        <li><a href="#">SUVs</a></li>
+                        <li><a href="#">Sedans</a></li>
+                        <li><a href="#">Trucks</a></li>
+                        <li><a href="#">Vans</a></li>
+                        <li><a href="#">Hybrids</a></li>
+                        <li><a href="#">Kei Cars</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
+                        <li><i class="fas fa-phone"></i> +254114963959</li>
+                        <li><i class="fas fa-envelope"></i> info@nickmotors.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM (JST)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>Developed by Nickson James</p>
+                <p>&copy; 2025 Nick Motors. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Payment Calculator
+        document.getElementById('paymentCalculator').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const price = parseFloat(document.getElementById('vehiclePrice').value);
+            const method = document.getElementById('paymentMethod').value;
+            const country = document.getElementById('shippingCountry').value;
+            
+            // Calculate fees (example values)
+            let fees = 0;
+            switch(method) {
+                case 'bank': fees = Math.max(30, price * 0.001); break; // $30 or 0.1%
+                case 'lc': fees = Math.max(100, price * 0.005); break; // $100 or 0.5%
+                case 'paypal': fees = price * 0.04; break; // 4%
+                case 'escrow': fees = price * 0.015; break; // 1.5%
+                case 'crypto': fees = 0; break; // No fees, 1% discount applied later
+                default: fees = 0;
+            }
+            
+            // Calculate shipping (example values)
+            let shipping = 0;
+            switch(country) {
+                case 'us': shipping = 1500; break;
+                case 'uk': shipping = 1800; break;
+                case 'uae': shipping = 1200; break;
+                case 'za': shipping = 2000; break;
+                case 'ke': shipping = 2200; break;
+                case 'ng': shipping = 2400; break;
+                case 'au': shipping = 1700; break;
+                case 'nz': shipping = 1900; break;
+                default: shipping = 2000;
+            }
+            
+            // Calculate import duty (example percentages)
+            let duty = 0;
+            switch(country) {
+                case 'us': duty = price * 0.025; break; // 2.5%
+                case 'uk': duty = price * 0.1; break; // 10%
+                case 'uae': duty = price * 0.05; break; // 5%
+                case 'za': duty = price * 0.25; break; // 25%
+                case 'ke': duty = price * 0.3; break; // 30%
+                case 'ng': duty = price * 0.35; break; // 35%
+                case 'au': duty = price * 0.05; break; // 5%
+                case 'nz': duty = price * 0.15; break; // 15%
+                default: duty = price * 0.1; // 10% default
+            }
+            
+            // Apply crypto discount if selected
+            if (method === 'crypto') {
+                price = price * 0.99; // 1% discount
+            }
+            
+            // Calculate total
+            const total = price + fees + shipping + duty;
+            
+            // Update results
+            document.getElementById('basePrice').textContent = '$' + price.toFixed(2);
+            document.getElementById('paymentFees').textContent = '$' + fees.toFixed(2);
+            document.getElementById('shippingCost').textContent = '$' + shipping.toFixed(2);
+            document.getElementById('importDuty').textContent = '$' + duty.toFixed(2);
+            document.getElementById('totalCost').textContent = '$' + total.toFixed(2);
+        });
+        
+        // Currency Converter
+        const exchangeRates = {
+            USD: { EUR: 0.93, GBP: 0.80, JPY: 151.34, AED: 3.67, ZAR: 18.92, KES: 157.50, NGN: 1503.50, AUD: 1.52, NZD: 1.66 },
+            EUR: { USD: 1.08, GBP: 0.86, JPY: 163.25, AED: 3.96, ZAR: 20.41, KES: 169.85, NGN: 1621.50, AUD: 1.64, NZD: 1.79 },
+            GBP: { USD: 1.25, EUR: 1.16, JPY: 189.17, AED: 4.59, ZAR: 23.65, KES: 196.87, NGN: 1879.38, AUD: 1.90, NZD: 2.08 },
+            JPY: { USD: 0.0066, EUR: 0.0061, GBP: 0.0053, AED: 0.024, ZAR: 0.125, KES: 1.04, NGN: 9.93, AUD: 0.010, NZD: 0.011 },
+            AED: { USD: 0.27, EUR: 0.25, GBP: 0.22, JPY: 41.67, ZAR: 5.15, KES: 42.89, NGN: 409.67, AUD: 0.41, NZD: 0.45 },
+            ZAR: { USD: 0.053, EUR: 0.049, GBP: 0.042, JPY: 8.00, AED: 0.19, KES: 8.32, NGN: 79.47, AUD: 0.080, NZD: 0.088 },
+            KES: { USD: 0.0063, EUR: 0.0059, GBP: 0.0051, JPY: 0.96, AED: 0.023, ZAR: 0.12, NGN: 9.55, AUD: 0.0096, NZD: 0.011 },
+            NGN: { USD: 0.00066, EUR: 0.00062, GBP: 0.00053, JPY: 0.10, AED: 0.0024, ZAR: 0.013, KES: 0.10, AUD: 0.0010, NZD: 0.0011 },
+            AUD: { USD: 0.66, EUR: 0.61, GBP: 0.53, JPY: 99.57, AED: 2.42, ZAR: 12.45, KES: 103.62, NGN: 989.14, NZD: 1.09 },
+            NZD: { USD: 0.60, EUR: 0.56, GBP: 0.48, JPY: 91.17, AED: 2.21, ZAR: 11.39, KES: 94.79, NGN: 904.95, AUD: 0.92 }
+        };
+        
+        function convertCurrency() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const from = document.getElementById('fromCurrency').value;
+            const to = document.getElementById('toCurrency').value;
+            
+            if (from === to) {
+                document.getElementById('result').value = amount;
+                document.getElementById('exchangeRate').textContent = `Exchange rate: 1 ${from} = 1 ${to}`;
+                return;
+            }
+            
+            const rate = exchangeRates[from][to];
+            const result = amount * rate;
+            
+            document.getElementById('result').value = result.toFixed(2);
+            document.getElementById('exchangeRate').textContent = `Exchange rate: 1 ${from} = ${rate.toFixed(4)} ${to}`;
+        }
+        
+        document.getElementById('amount').addEventListener('input', convertCurrency);
+        document.getElementById('fromCurrency').addEventListener('change', convertCurrency);
+        document.getElementById('toCurrency').addEventListener('change', convertCurrency);
+        
+        document.getElementById('swapCurrencies').addEventListener('click', function() {
+            const from = document.getElementById('fromCurrency');
+            const to = document.getElementById('toCurrency');
+            const temp = from.value;
+            from.value = to.value;
+            to.value = temp;
+            convertCurrency();
+        });
+        
+        // Initialize converter
+        convertCurrency();
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+                
+                const icon = question.querySelector('i');
+                if (item.classList.contains('active')) {
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                } else {
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                }
+            });
+        });
+        
+        // Download Guide Button
+        document.getElementById('downloadGuide').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Thank you! The payment guide PDF will begin downloading. If it doesn\'t, please check your pop-up settings.');
+            // In a real implementation, this would link to an actual PDF file
+        });
+        
+        // Contact Form Submission
+        document.getElementById('paymentContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! Our payment specialists will contact you within 24 hours.');
+            this.reset();
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

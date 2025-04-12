@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nick Motors - Contact Us</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #e30613; /* Nick red */
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        h1, h2 {
+            color: #e30613;
+        }
+        
+        .contact-info {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 5px;
+        }
+        form {
+            display: grid;
+            gap: 1rem;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background: #e30613;
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            cursor: pointer;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nick Motors</h1>
+        <p>Contact Us</p>
+        <nav>
+            <ul>
+                <li><a href="Vehicles.html">Home</a></li><li><a href="inventory.html">Inventory</a></li>
+                
+                
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <p><strong>Address:</strong> Obare Towers Nairobi, Kenya</p>
+            <p><strong>Phone:</strong> <a href="tel:+254114963959">+254114963959</a></p>
+            <p><strong>Email:</strong> <a href="mailto:info@nickmotors.com">info@nickmotors.com</a></p>
+            <p><strong>Hours:</strong> Mon-Fri: 9:00 AM – 6:00 PM EAT</p>
+        </div>
+
+        <h2>Send a Message</h2>
+        <form action="https://formsubmit.co/info@nickmotors.com" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject">
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <input type="hidden" name="_next" value="https://nickmotors.com/thank-you.html">
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>Developed by Nickson James</p>
+        &copy; 2025 Nick Motors. All rights reserved.
+    </footer>
+</body>
+</html>

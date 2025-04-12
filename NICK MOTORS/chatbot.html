@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nick Motors - Support Chatbot</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .chatbot-container {
+            max-width: 600px;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .chatbot-header {
+            background-color: #e30613;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .chatbot-messages {
+            height: 400px;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: white;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 80%;
+        }
+        .bot-message {
+            background-color: #f1f1f1;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        .user-message {
+            background-color: #e30613;
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            background-color: #eee;
+        }
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+        #send-button {
+            background-color: #e30613;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .quick-reply {
+            display: inline-block;
+            background-color: #f1f1f1;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .quick-reply:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            Nick Motors Support Assistant
+        </div>
+        <div class="chatbot-messages" id="chat-messages">
+            <!-- Messages will appear here -->
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="user-input" placeholder="Type your question...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Knowledge Base
+        const knowledgeBase = {
+            "payment": {
+                "methods": "We accept: Credit/Debit Cards (Visa, MasterCard, Amex), Bank Transfers, PayPal, and in-person cash payments.",
+                "process": "Pay online via our secure portal, by bank transfer, or at our Tokyo showroom. You'll receive a payment confirmation email.",
+                "deadline": "Payments are due within 15 days of invoice. Late payments incur 2% monthly interest.",
+                "refund": "Refunds take 7-10 business days after approval. Contact payments@tokaidomotors.com for requests."
+            },
+            "shipping": {
+                "vehicles": "Vehicle shipping: 3-5 days domestically, 2-4 weeks internationally by sea. Door-to-door available (+¥50,000).",
+                "parts": "Parts shipping: Standard (5-7 days, ¥1,200) or Express (2-3 days, ¥3,500).",
+                "tracking": "Track via Japan Post or Nippon Express using the tracking number emailed to you."
+            },
+            "contact": {
+                "address": "Our showroom: 1-5-1 Roppongi, Minato City, Tokyo 106-0032",
+                "phone": "Call us at +81 (3) 1234-5678 (Mon-Fri, 9AM-6PM JST)",
+                "email": "Email info@tokaidomotors.com for general inquiries or sales@tokaidomotors.com for purchases."
+            }
+        };
+
+        // Chatbot Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatMessages = document.getElementById('chat-messages');
+            const userInput = document.getElementById('user-input');
+            const sendButton = document.getElementById('send-button');
+
+            // Initial bot message
+            addBotMessage("Hello! I'm Nick Motors' support bot. How can I help you today? Here are quick options: " + 
+                createQuickReplies(["Payments", "Shipping", "Contact"]));
+
+            // Send message on button click
+            sendButton.addEventListener('click', sendMessage);
+            
+            // Send message on Enter key
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') sendMessage();
+            });
+
+            function sendMessage() {
+                const message = userInput.value.trim();
+                if (message) {
+                    addUserMessage(message);
+                    userInput.value = '';
+                    setTimeout(() => respondToUser(message), 500);
+                }
+            }
+
+            function addUserMessage(text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', 'user-message');
+                messageDiv.textContent = text;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function addBotMessage(text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', 'bot-message');
+                
+                // Check if text contains quick replies (special formatting)
+                if (typeof text === 'object') {
+                    messageDiv.appendChild(text);
+                } else {
+                    messageDiv.innerHTML = text;
+                }
+                
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function createQuickReplies(replies) {
+                const container = document.createElement('div');
+                replies.forEach(reply => {
+                    const span = document.createElement('span');
+                    span.classList.add('quick-reply');
+                    span.textContent = reply;
+                    span.addEventListener('click', function() {
+                        addUserMessage(reply);
+                        setTimeout(() => respondToUser(reply), 300);
+                    });
+                    container.appendChild(span);
+                });
+                return container;
+            }
+
+            function respondToUser(message) {
+                const lowerMsg = message.toLowerCase();
+                let response = "I can help with payment methods, shipping info, or contact details. Please ask specifically!";
+                
+                // Payment questions
+                if (lowerMsg.includes("payment") || lowerMsg.includes("pay")) {
+                    if (lowerMsg.includes("method") || lowerMsg.includes("how to pay")) {
+                        response = knowledgeBase.payment.methods;
+                    } else if (lowerMsg.includes("process") || lowerMsg.includes("how")) {
+                        response = knowledgeBase.payment.process;
+                    } else if (lowerMsg.includes("deadline") || lowerMsg.includes("due")) {
+                        response = knowledgeBase.payment.deadline;
+                    } else if (lowerMsg.includes("refund")) {
+                        response = knowledgeBase.payment.refund;
+                    } else {
+                        response = "About payments: " + createQuickReplies(["Methods", "Process", "Deadline", "Refund"]);
+                    }
+                }
+                // Shipping questions
+                else if (lowerMsg.includes("shipping") || lowerMsg.includes("delivery")) {
+                    if (lowerMsg.includes("vehicle") || lowerMsg.includes("car")) {
+                        response = knowledgeBase.shipping.vehicles;
+                    } else if (lowerMsg.includes("part") || lowerMsg.includes("accessor")) {
+                        response = knowledgeBase.shipping.parts;
+                    } else if (lowerMsg.includes("track")) {
+                        response = knowledgeBase.shipping.tracking;
+                    } else {
+                        response = "About shipping: " + createQuickReplies(["Vehicles", "Parts", "Tracking"]);
+                    }
+                }
+                // Contact questions
+                else if (lowerMsg.includes("contact") || lowerMsg.includes("address") || lowerMsg.includes("phone") || lowerMsg.includes("email")) {
+                    if (lowerMsg.includes("address")) {
+                        response = knowledgeBase.contact.address;
+                    } else if (lowerMsg.includes("phone")) {
+                        response = knowledgeBase.contact.phone;
+                    } else if (lowerMsg.includes("email")) {
+                        response = knowledgeBase.contact.email;
+                    } else {
+                        response = "Contact info: " + createQuickReplies(["Address", "Phone", "Email"]);
+                    }
+                }
+                
+                addBotMessage(response);
+            }
+        });
+    </script>
+</body>
+</html>
