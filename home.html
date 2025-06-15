@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nick Motors | Premium Automotive Excellence</title>
+    <style>
+        :root {
+            --primary: #0066cc;  /* Nick Motors blue */
+            --secondary: #333333;
+            --accent: #ff6600;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            color: var(--secondary);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            padding: 15px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1494972308805-463bc619d34e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+        
+        /* Animated Car Section */
+        .car-animation {
+            height: 200px;
+            background-color: #f8f9fa;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .road {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            background-color: var(--secondary);
+        }
+        
+        .lane-markers {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            height: 5px;
+            background: repeating-linear-gradient(90deg, white, white 40px, transparent 40px, transparent 80px);
+        }
+        
+        .car {
+            position: absolute;
+            bottom: 45px;
+            left: -200px;
+            width: 150px;
+            animation: drive 8s linear infinite;
+        }
+        
+        @keyframes drive {
+            0% { transform: translateX(-200px); }
+            100% { transform: translateX(calc(100vw + 200px)); }
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-icons {
+            margin-bottom: 30px;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <!-- Replace with your actual logo -->
+                <img src="data:image/jpeg;base64,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" alt="Nick Motors Logo">
+                <div class="logo-text">NICK<span>MOTORS</span></div>
+            </div>
+           
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>DRIVE YOUR DREAM</h1>
+            <p>Discover premium vehicles with unparalleled service at Nick Motors</p>
+            <a href="Vehicles.html" class="btn" >EXPLORE MORE</a>
+        </div>
+    </section>
+
+    <!-- Animated Car Section -->
+    <section class="car-animation">
+        <div class="road">
+            <div class="lane-markers"></div>
+        </div>
+        <!-- Animated car - replace with your preferred car image -->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6nlsdvNC64E_-WGp7M-JEWqzaFFBtr1pdvw&s" alt="Sports Car" class="car">
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>WHY CHOOSE NICK MOTORS?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3>Premium Selection</h3>
+                <p>Curated inventory of luxury and performance vehicles from top manufacturers.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>Certified Quality</h3>
+                <p>Every vehicle undergoes our rigorous 150-point inspection process.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <h3>Flexible Financing</h3>
+                <p>Competitive rates and personalized payment plans for every budget.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">NICK MOTORS</div>
+        <div class="footer-links">
+            <a href="Vehicles.html">Home</a>
+            <a href="inventory.html">Inventory</a>
+            <a href="#">Services</a>
+            <a href="About us.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="copyright">
+            <P>Developed by Nickson James</P>
+            &copy; 2025 Nick Motors. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
