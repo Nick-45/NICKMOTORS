@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After-Sale Support | Nick Motors</title>
+    <!-- Same header content as above -->
+    
+    <style>
+        :root {
+            --primary: #1a5f7a;
+            --secondary: #000000;
+            --accent: #f8f1e5;
+            --text: #333333;
+            --light: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        /* Service Hero */
+        .service-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 60px;
+        }
+        
+        .service-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .service-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Service Detail */
+        .service-detail {
+            padding: 60px 0;
+        }
+        
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .service-text h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-text p {
+            margin-bottom: 20px;
+        }
+        
+        .service-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .benefits {
+            background-color: var(--accent);
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-btn {
+            background-color: white;
+            color: var(--primary);
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--light);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: var(--light);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--light);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .service-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+        
+        .inspection-types {
+            margin: 60px 0;
+        }
+        
+        .inspection-type {
+            margin-bottom: 40px;
+        }
+        
+        .inspection-type h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .checklist {
+            background-color: var(--accent);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .checklist h4 {
+            margin-bottom: 15px;
+        }
+        
+        .checklist ul {
+            columns: 2;
+        }
+        
+        @media (max-width: 768px) {
+            .checklist ul {
+                columns: 1;
+            }
+        }
+    
+        
+        .support-options {
+            margin: 60px 0;
+        }
+        
+        .support-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .support-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .support-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .faq-section {
+            background-color: var(--accent);
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 30px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header same as above -->
+
+    <!-- Service Hero -->
+    <section class="service-hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1581093057305-25a0a7a9cdb8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')">
+        <div class="container">
+            <h1>After-Sale Support</h1>
+            <p>Our commitment to you continues long after your vehicle has been delivered.</p>
+        </div>
+    </section>
+
+    <!-- Service Detail -->
+    <section class="service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>Ongoing Support & Assistance</h2>
+                    <p>At Nick Motors, we believe the customer relationship doesn't end when your vehicle is delivered. Our comprehensive after-sale support ensures you have access to assistance and resources whenever you need them.</p>
+                    <p>Whether you have questions about your vehicle's features, need help locating parts, or require documentation for registration, our support team is here to help. We maintain detailed records of every vehicle we sell and can provide information and assistance even years after your purchase.</p>
+                    <p>Our multilingual support staff are available during business hours to address any concerns or questions you may have about your imported vehicle.</p>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Customer support">
+                </div>
+            </div>
+            
+            <div class="support-options">
+                <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary);">Our After-Sale Services</h2>
+                
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Documentation Assistance</h3>
+                    <p>Need duplicate copies of your import documents or help understanding registration requirements? We maintain complete records of all transactions and can provide certified copies of any documentation.</p>
+                    <ul>
+                        <li>Duplicate title/ownership documents</li>
+                        <li>Export certificates</li>
+                        <li>Customs clearance paperwork</li>
+                        <li>Translation services</li>
+                    </ul>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Parts & Maintenance Support</h3>
+                    <p>We can help source genuine parts from Japan and provide maintenance information specific to your vehicle.</p>
+                    <ul>
+                        <li>OEM parts sourcing</li>
+                        <li>Maintenance schedule information</li>
+                        <li>Technical specifications</li>
+                        <li>Recommended service providers</li>
+                    </ul>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Customer Support</h3>
+                    <p>Our dedicated support team is available to answer your questions and provide assistance with any issues related to your vehicle.</p>
+                    <ul>
+                        <li>Multilingual support staff</li>
+                        <li>Email and phone support</li>
+                        <li>Technical advice</li>
+                        <li>Problem resolution assistance</li>
+                    </ul>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>Owner Resources</h3>
+                    <p>Access to exclusive resources for Nick Motors customers.</p>
+                    <ul>
+                        <li>Online owner's portal</li>
+                        <li>Vehicle manuals and documentation</li>
+                        <li>Maintenance reminders</li>
+                        <li>Exclusive discounts on future purchases</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary);">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How long after purchase can I access after-sale support?</div>
+                <p>We provide lifetime after-sale support for all vehicles purchased through Nick Motors. While some services may have associated fees after the first year, we're always available to assist with documentation and general inquiries.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can you help me find a local mechanic familiar with Japanese imports?</div>
+                <p>Yes! We maintain a network of recommended service providers in many countries and can often connect you with a qualified mechanic in your area who has experience with Japanese vehicles.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What if I need parts that aren't available in my country?</div>
+                <p>We can source genuine OEM parts directly from Japan and ship them to you. Our parts sourcing service is available to all Nick Motors customers, often at better prices than local dealerships.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I access my vehicle's maintenance history from Japan?</div>
+                <p>For vehicles that came with maintenance records, we keep digital copies on file and can provide them upon request. For auction vehicles, we can often obtain available history reports.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What should I do if I'm having trouble registering my imported vehicle?</div>
+                <p>Contact our support team immediately. We've helped hundreds of customers through the registration process and can provide guidance and documentation to resolve most issues.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary);">Why Our After-Sale Support Stands Out</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Lifetime Access</h3>
+                    <p>We maintain records indefinitely and are always available to assist, even years after your purchase.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Network</h3>
+                    <p>Resources and recommendations available regardless of where you're located.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Technical Expertise</h3>
+                    <p>Our team has in-depth knowledge of Japanese vehicles and their unique characteristics.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Customer Focused</h3>
+                    <p>We measure our success by your long-term satisfaction with your vehicle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need After-Sale Assistance?</h2>
+            <p>Our support team is ready to help with any questions or needs regarding your Nick Motors vehicle.</p>
+            <a href="contact.html" class="cta-btn">Contact Support</a>
+        </div>
+    </section>
+
+     <!-- Footer -->
+     <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Nick Motors</h3>
+                    <p>Exporting quality vehicles worldwide with transparency and reliability since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="Vehicles.html">Home</a></li>
+                        <li><a href="inventory.html">Inventory</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="how to buy.html">How to Buy</a></li>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Vehicle Types</h3>
+                    <ul>
+                        <li><a href="#">SUVs</a></li>
+                        <li><a href="#">Sedans</a></li>
+                        <li><a href="#">Trucks</a></li>
+                        <li><a href="#">Vans</a></li>
+                        <li><a href="#">Hybrids</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
+                        <li><i class="fas fa-phone"></i> +254 114 963 959</li>
+                        <li><i class="fas fa-envelope"></i> info@nickmotors.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8AM-6PM (EAT)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>Developed by Nick</p>
+                <p>&copy; 2025 Nick Motors. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
