@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspection & Verification | Nick Motors</title>
+    
+
+        <style>
+        :root {
+            --primary: #1a5f7a;
+            --secondary: #000000;
+            --accent: #f8f1e5;
+            --text: #333333;
+            --light: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        /* Service Hero */
+        .service-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 60px;
+        }
+        
+        .service-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .service-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Service Detail */
+        .service-detail {
+            padding: 60px 0;
+        }
+        
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .service-text h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-text p {
+            margin-bottom: 20px;
+        }
+        
+        .service-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .benefits {
+            background-color: var(--accent);
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-btn {
+            background-color: white;
+            color: var(--primary);
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--light);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: var(--light);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--light);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .service-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+        
+        /* Additional specific styles */
+        .inspection-types {
+            margin: 60px 0;
+        }
+        
+        .inspection-type {
+            margin-bottom: 40px;
+        }
+        
+        .inspection-type h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .checklist {
+            background-color: var(--accent);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .checklist h4 {
+            margin-bottom: 15px;
+        }
+        
+        .checklist ul {
+            columns: 2;
+        }
+        
+        @media (max-width: 768px) {
+            .checklist ul {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgNTAiPjxzdHlsZT4uc3R5bGUwe2ZpbGw6IzFhNWY3YX0uc3R5bGUxe2ZpbGw6IzAwMDAwMH08L3N0eWxlPjxwYXRoIGNsYXNzPSJzdHlsZTAiIGQ9Ik0xMCAxMGgxODB2MzBIMTB6Ii8+PHRleHQgeD0iNTAlIiB5PSI1NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiNGRkZGRkYiPk5JQ0sgTU9UT1JTPC90ZXh0Pjwvc3ZnPg==" alt="Nick Motors Logo">
+                <div class="logo-text">NICK <span>MOTORS</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="Vehicles.html">Home</a></li>
+                    <li><a href="inventory.html">Inventory</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="how to buy.html">How to Buy</a></li>
+                    <li><a href="shipping.html">Shipping</a></li>
+                    <li><a href="About us.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Service Hero -->
+    <section class="service-hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')">
+        <div class="container">
+            <h1>Inspection & Verification Service</h1>
+            <p>Ensure you're getting exactly what you pay for with our comprehensive vehicle inspection and verification process.</p>
+        </div>
+    </section>
+
+    <!-- Service Detail -->
+    <section class="service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>Thorough Vehicle Inspections</h2>
+                    <p>At Nick Motors, we understand that buying a vehicle sight-unseen can be daunting. Our professional inspection service gives you peace of mind by thoroughly examining every aspect of your potential purchase before you commit.</p>
+                    <p>Our certified inspectors conduct 150+ point checks on each vehicle, covering mechanical, electrical, body, and interior components. We don't just look for current issues - we identify potential future problems that could cost you money down the road.</p>
+                    <p>Every inspection includes detailed photographs and a comprehensive report with our professional assessment. We'll tell you not just what's wrong with a vehicle, but how significant each issue is and what it might cost to repair.</p>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Vehicle inspection">
+                </div>
+            </div>
+            
+            <div class="inspection-types">
+                <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary);">Our Inspection Services</h2>
+                
+                <div class="inspection-type">
+                    <h3>Pre-Purchase Inspection</h3>
+                    <p>Our most popular service - a complete evaluation of any vehicle you're considering purchasing. We'll give you an honest assessment of the vehicle's condition and help you make an informed decision.</p>
+                    
+                    <div class="checklist">
+                        <h4>Includes:</h4>
+                        <ul>
+                            <li>Engine performance evaluation</li>
+                            <li>Transmission test</li>
+                            <li>Brake system inspection</li>
+                            <li>Suspension assessment</li>
+                            <li>Electrical systems check</li>
+                            <li>Body and frame inspection</li>
+                            <li>Undercarriage examination</li>
+                            <li>Interior condition evaluation</li>
+                            <li>Test drive assessment</li>
+                            <li>OBD-II diagnostic scan</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="inspection-type">
+                    <h3>Post-Purchase Verification</h3>
+                    <p>For vehicles already purchased at auction, we conduct a detailed verification to ensure the vehicle matches its description and grading. This service is included with all our vehicle purchases.</p>
+                    
+                    <div class="checklist">
+                        <h4>Includes:</h4>
+                        <ul>
+                            <li>Verification against auction sheet</li>
+                            <li>Mileage confirmation</li>
+                            <li>Option package verification</li>
+                            <li>Hidden damage detection</li>
+                            <li>Undisclosed repair identification</li>
+                            <li>Mechanical condition confirmation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="inspection-type">
+                    <h3>Pre-Shipment Inspection</h3>
+                    <p>Conducted just before your vehicle ships to ensure no damage has occurred during preparation and storage. Includes detailed photographic documentation of the vehicle's condition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary);">Why Our Inspections Are Different</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Certified Inspectors</h3>
+                    <p>Our inspectors have formal automotive training and an average of 10+ years experience in the industry.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Detailed Documentation</h3>
+                    <p>Receive 50+ high-resolution photos with every inspection, highlighting all areas of concern.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Comprehensive Reports</h3>
+                    <p>Easy-to-understand reports with severity ratings and repair cost estimates for all identified issues.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Money-Back Guarantee</h3>
+                    <p>If we miss a major defect (frame damage, engine issues, etc.), we'll refund your inspection fee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need a Vehicle Inspected?</h2>
+            <p>Protect your investment with our professional inspection services. Contact us today to schedule an inspection.</p>
+            <a href="contact.html" class="cta-btn">Request an Inspection</a>
+        </div>
+    </section>
+
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Nick Motors</h3>
+                    <p>Exporting quality vehicles worldwide with transparency and reliability since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="Vehicles.html">Home</a></li>
+                        <li><a href="inventory.html">Inventory</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="how to buy.html">How to Buy</a></li>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Vehicle Types</h3>
+                    <ul>
+                        <li><a href="#">SUVs</a></li>
+                        <li><a href="#">Sedans</a></li>
+                        <li><a href="#">Trucks</a></li>
+                        <li><a href="#">Vans</a></li>
+                        <li><a href="#">Hybrids</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
+                        <li><i class="fas fa-phone"></i> +254114963959</li>
+                        <li><i class="fas fa-envelope"></i> info@nickmotors.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8AM-6PM (EAT)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <P>Developed by Nickson James</p>
+                <p>&copy; 2025 Nick Motors. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
