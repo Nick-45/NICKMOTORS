@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Buy | Tokaidō Motors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #E31937;
+            --secondary: #000000;
+            --accent: #F8F1E5;
+            --text: #333333;
+            --light: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1485291571150-772bcfc10da5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #c0102c;
+        }
+        
+        /* Process Section */
+        .process-section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--light);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        /* Benefits Section */
+        .benefits-section {
+            background-color: var(--accent);
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        /* Testimonials */
+        .testimonials-section {
+            margin-bottom: 60px;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+            top: -15px;
+            left: -10px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--light);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: var(--light);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--light);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUTExMWFRUXGBUYGRcYGBgbGBgZFxcYGB0eGCAaHiogGB0lHhcfITEhJikrLi4uGB8zODMtNygtLisBCgoKDg0OFhAPGDImHiYtNzc3LTcrLS0tMS8rKyszLC4rLS0tMC0tKzcvLDcvLTcvLS0tLSstLS0tLTcrKy0rLf/AABEIAKsBJgMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAABwUGAwQIAgH/xABQEAACAQMABQgEBwwIBAcAAAABAgMABBEFBhIhMQcTQVFhcYGhIjKRsQgUQlKCwdEVFyNTVGJykpOistIWM0Nzs8LT8IPD4fE0NWNko+Lj/8QAGQEBAQEBAQEAAAAAAAAAAAAAAAEEAwIF/8QALREBAAIBAwMBBwMFAAAAAAAAAAECAwQREiExQVEFEzJhkdHwFIGxIlJxoeH/2gAMAwEAAhEDEQA/AHjRRRQFFFFAUUUUBRRRQFFFFAUUV5kkC8Tig9UVpy6QUcAT5VgNzK3qrjw+2vE5KukY7eUnXh5VHEgd5qMNpM3FvafsoXQ56WA7h/1rzzt4q9cKebN1r6MfLHv91YzpSL53kfsrANDr0ufIVjfRkQ4yY7ytTfJ6Lth9ZbP3Xi6z7DR92IfneR+ytQaLhPCXPcy19OgUPBz5Gpvl9IetsHrP5+zcXSsJ/tB45HvrMl7GeEin6QqHfV09EntX/rWtLq9L0FT4kfVU55Y71eox4J7XWcGvtUt9HTx7wjDtU5/hrwml50ONs9zb/fvqfqdvirs9fo+XwWiV3oqrwa0sPXQHtU48j9tStpp2CTdtbJ6m3efDzrpXNS3aXG+myU7wk6KAaK6uAooooCiiigKKKKAooooCiiigKKKKAooooCiiigKKK+M2KD7WOWcL39VfGDHsHnUPprWK0sh+FkG3xCD0pD4Dh3nArz18PW0R3SRd24DZFeHtlUFpHwBxJOB4k0sNN8qc75W2jEQ+e+Gf2eqv71eNdZTcxWt6CSkqbLLklUlT1gBwHSPoVOEeV5z46Lte66WEHqvzh6oxtfvHC+dQF7ynNwhtwO12z5KPrpe0V7eN1lute75/7UIPzEUeZyaip9OXL+tcTH/iNj2A4qPooLfoNidG3hYk5ki3kk9K9dQOwOoVO6HONFXHbcIPKOoOg+bI6hW0LUrEJeAZyoxuzsgEn2sB7a1gOqrHrhbcwLa36Y4iW/Tdst5qaCIh0rOnqzyjudvtqSttcbxP7XaH56qfdg+dQNSermjfjFwkZ9Qem56kXj7dw8aC+jWpooIZJ4wXly2ym7CdDb87zu3dvZW1b6yWc+5yFPVIo9+8edUXTukOfmZx6vqoOpF3Duzx8a0KETsZ1xq/BIModnPAqcqf99lQt9q5Mm9cSDs3H2H6iaqljfywnMbsnYDuPeOBq06L13O4Tpn89PrU/UfCuN8FLeGnHq8tPO/+Wha6QlgOFYrjip4eIPCrFo7WpGwJRsH5w3r49I86kSlveJtDZcfOHrL9Y7jVc0rqzJHlo/wi9Xyh/N4eyuE0y4vhneGqMmDP0vG0/nn7rnHIGAKkEHgRvBr1S00fpOWA5RsDpU+qe8dfbxq6aF09Hcej6knzT0/onp99dcWorfp2lnz6O+LrHWEvRRRWhkFFFFAUUUUBRRRQFFFFAUUUUBRRRQFRunNOwWibc8gXjsrxZj1KBvNQ13rlDLJLaWc0Zugp2C4zEzjigYHBYAcPfg4S+lppnmc3BczAkPt+sCOjsA6hu6qC2aycpNxPlLfMEfWD+FI7SNyfR39tUlmJJJJJO8k7yT1k9Jr5RQFXTUd/jNvc2B9Yjn4c9DpjaA793taqXUrqvJPHcRTQRSSFGBIRWbI4MN3WpIoPNFXnWHUe4kupGgQc052wWYLgvvYY4jfno6RXiDk0uj60sK9xdv8AKKCk0Uwo+S9vlXKg9kZP+avf3r//AHX/AMX/AN6CK0aMaIl/OuVHsVfsqBpkJqUy2fxUTAnnec2ihA9XGMbXnUNPyfXA9WSJu8sv1GghdW4hz3OMMpCrSt27HqjvLkedZNbpCbkhjkokSE9oQE+ZNSaaKe3WO2fHOXE0ZYA5/BRkYGe1mJ+jUHrAH+MTM6su1I5G0CMjaOOPZiudbcr2j0dr4+OKsz53+kdPuj6tdonxWxzwluvasI+3P73ZULq/oz4zOkXyfWc9SLvP2d5FSOn7/n5mZfUHoIOgIu4Y7+PjXRxR1FFFAUUUUGW1uniYPGxVh0j6+sdlMHVvT7yxlp1CKuBzuQFY8MYPT3bu6qlofQ4ZefnJWEcB8qQ9S9nb/wBxm0jpAykDASNdyIOCj6z20Fx0xoGO4G0MK/Qw4H9Lr7+NUW+tJIH2XBVhvBHT1FTUpoTTzwEK2Wj+b0r+j9lW25t4byIcGU71YcVPZ1HsrNm08X6x3btNrLY/6bda/wAIXV3WfaxFOfS4K/Qexuo9vT77XSu0vox7d9h94Pqt0MP98RU/qprFwgmPYjn+FvqPhXPDnmJ4ZHbVaStq+9w9vT7LlRRRW18sUUUUBRRRQFFFFAUUV4lk2VLYJwCcAEk46gOJoPN1cJGjPIwRFBLMxwAB0kmkjr9ykvdbUFqWjt94Z94eX60Ts4npxwrPr0+ltIvsiyuI7dTlYsDLHoaTBwT1DeB28aqn9C9I/kc36o+2ggo2KkFSVIIIIOCCOBBHAjrFMOyu00xGI3KppGNfRc4C3SKOB6pB/wBt2QsDZagaSlYKLV0/OkKqo7znPsBNMbVXkoigZZbmQyyKQwVCyIrA5ByMMxB6d3dQLqy0HczSNFHBIzqcMMY2SOhidy+Jq7aH5KZGwbmYIPmR+k3ix3A9wNNcCvtBW9F6i2EGMQK7D5Uvpn2NuHgBVijQKMAAAdAGBXqigKKKKAooooCiio7WG8MNtLIOIU47zuHmalrRWJmXqlZtaKx5U+2ufjOlg3yULAd0asM+LHPjV+ljDDDAMOojI86XnJtbZuHfoSPZ8XYfUppjVl0e80m0+Zb/AGlEVyxjr2rEQi/uBABII0ERkXZZowAcdnQPZVS0lqXMmTERKOr1W9h3H2+FMGitb5xNTRMhKspVhxBGD514pu6R0bFOuzKgbqPSO48RVI03qhJFl4syJ1fLH83hv7KCs1O6K0SqoJ7ndH8iP5Up+pff78mjtGJAonuVyTvjhPFvzn6l7P8AtWC+vHlcu5yfIDqHUKD1pC+aZstgAblUeqo6hWtRRQFb+h9Kvbvkb1PrL0H7D21oUUDDuIYryDrU7welW+oilxpOxeCQxuN46egjoI7Kl9A6WNu+/Jjb1h9Y7R51Z9Y9FLdQhkwXA2kPWDvx3H34rNqcPON47t+i1XurcbfDP+mrqfpznl5qQ/hEG4n5a/aOn21ZaT8E7ROHU7LqcjsI4g+4impojSC3ESyL08R1MNxHtqaXNzjjPeHrX6X3dude0/y3KKKK1PnCiiigKrvKJpBrfRt3KjFXETBWBwwZvRBB6CC3GrFS55ebzY0ZsZ3yzRL4LmQ/wUCS/pbpD8uuv28v81PLkT03JdWDCaR5ZIpnUs7FmIYB1yW3n1seFc502fg+6SCTXkTHAaJJR/wiysfZIvsFFV3XnXC9+6N2Iru4jjWZkVUldVATCbgDgb1J8aufITpS6uZ7pp7maZY44gBJIzANIznIBPHEfHtpM3FwZXeQ8ZGZz3uxb66evwfLLZs55fxk+PCNFHvY0RTeVLW27TSc8cF1PFHHzabKSMq5CBicA4zlqhNX9ZtIz3VvD8euTzk0Skc6+8Fxnp6s1Daz3nPXl1LxDzzEd22QPICp3kjsud0tbdSGSQ/QjYD95hQdEaz6wQ2Fu9xOTsruAHrOx4KvWT9p6K571n5TtIXjHZla2i6I4WKnH5zjDMe7A7KsvwhNJlri2tgdyRtKw/OkOypPaAjfrGlK53HFBtNpCY7zNMd/HnZOPftcandXtfNIWbAx3DyKOMUrNIhHV6RJTvUimjym2EdnoCO3VVBBtkG4ZLgh2b9I7LEntNIiiutdUtYEv7SO5jBUODtKeKOpKsvbgg7+kYNIDW7Xi++PXQivJkjWeVEVXwoVGKbuz0c+NM7kRfm9EGRuAluH8FO/+E1z68xclzxclj3sdo+Zohgcnms2kLnSVrC95O6M5LqXOCqIzkHsOzjxq0ctWvE0M0dpaTNEyDnJWQ4OWHoJnuyxHatUzkkukt7ue7l/q7a1lkP6TMiKo7WyQKqOkr57iaSeQ5eV2du9jnA7BwA6ABQWPRGs+l7meK3ivrgySsEX0twzxJ3cAASewGnfrtmGxigLtISUUu5yz7CklmPWSAfGqZyB6sYD6QkHHMUOeoH8I47yNkdzddWTlKuMyxRjfsqWx2uQB/D51m1duOGzb7Ppz1FPl1+jPq3fRWGjpbyc4XJY44nZOwqr1ktuH6VKHWblP0hdsdiVraLojhOy2PznHpE9xA7KufLjIYLGxtAeLbTfnc0gG/6UmcdY7KS5rrhpwx1r8nHUZPeZbX9ZbbaVnJybicnrM0mc8fnVOaB1/wBIWjApcySL0xzM0iEdXpElfokUx9bNFKurlrFbQGVpBaN+CjLsWIEjudkE78HJPzsdlKP+j95+R3P7CX+Wujg6l1T04t9aQ3SjZEi5K5zssCVZc9OGBGeypaqnyVaPaDRVtG6sj7LsysCGBeR3wQd4PpcKtlBDad0Cs/pL6MnX0Njob7ao9zbtGxRxhhxH++Ipo1HaZ0StwuDuceq3V2HrFAu6Ky3Vs0blHGGHH7R1isQFAV8qVt9ByEbUhESdb8T3LxPlW3GYIv6tOcb58nDwX7aCNstEyy7wuF+e3oqPE8fCrZq/MkYEHO84d5BxhR07IPT0moC5u3k9diezoHcOFYo3KkEbiDkeFB6150VzcgmUejIcN2P/ANQPaD11i1H0pzc3NMfQl4djjh7Ru9lXCeJbu2Kn5a/qsPsIpWyKyMQfRZWx2hlP1EV87PE4skXr+er7mktGowTit3j8g5aK0dC34ngSX5w39jDcw9oNb1fQiYmN4fEtWazMT3gUUUVUFJj4RV5/4OHtmkPgERf4mpz1zxy83m3pNY87ooIx3F2dj5bPsoFzUxqxpo2kskgzl7e4iHfImFJ7AwU1j1f0QbpplGcx29xOMdJiTIHiSBUWKKFGBiujuTgC00Ckp3fgppz9Iu48sVzhIcAnsNdH67qLPV94uGzbRQDvYJH9ZojnBOAzxwM00fg+2e1fTy/i4NnxlcfVGfbSvp4/B4ssQXU2PXlSMHsjTa98poqg8sF5zulrj/0xHGPooCfNjVd1cs+fu7aLGduaJSOsFxnyzRrJec9d3MvHbnmYHsMjY8sVYeSCz53S1t1R85IfoxsB5sKBwcrWqt1pGCGK2MfoSF222Kj1CoxgHPrGlj95nSf/ALb9q3+nTU1u5S7TR1x8Xmjnd9hXzGqFQGLAD0nBz6PV0ioYct1h+Juv1Iv9SiNq40e+i9XZYmK84kEoJU5HOTM3DI3736q52Arofl2vdjRexwM00SeAzIf8OueKDPHdOsbxg4WQoXHzubLFQewFs46wOqs+g9Gm6uIbdWCmWRU2j0ZO8+AzurHc2LJHDIfVmEjL3RyGM58Vr1oa8MFxBMP7OWJ/BXBPlmiut9F6Pjt4Y4IhsxxoqKOxRgZ6z1npqi3K/GdLbPFUcDwiGT+8MeNMJnAG10Yz4VRuT2LnJp7k9OQO+RttvcPbWTUxytjp89/o36KeFMuT0jb6ojl70DJPbQ3Malvi7PtgbyI5AuWx04KLnsJPRSEBrru509aRsUkuYFYbmVpEBG7O8E7txpW648n9heOX0bc26XLZPMLIpjlIBJ2QpPNtuJ3DHWOmtb56i6k8oV3o4hFPO2+d8LncM8ebbjGezevZk5roDVHW220jFzkDekMbcbbpIz1MOrqIyDXLF/ZSQSNFKjRyIcMrcQfr68jcRvFSepel3tL63mRiPwiIwHBo3YKynrGDnvAPRRXWVFFFEFFFFBGaZ0OlwAWyGXpXGSOrfVeW7SLdBGEPAu3pSee5e6rpVZ1lsNk86o3Nubv6/H/fGghpZWY5YknrJzXiiigKKKKCe1WucM0Z6fSHeNx8vdVd17sObuNsD0ZRn6S4B+o+Jrc0fPsSI3URnuO4+RqY15s+ctSw4xkN4eqfI58K4amnLHPybNBl93mr8+n1/wCovk6vf6yEnqdf4W+r21dqVOq91zV1Ec4BbYPc/o+8g+FNavGkvvj29HT2lj45t48iiiitT54rljlKvOd0peNnIEuwO6NVT3qa6ldsAk9AzXJV5oq8lkklNpcgyO7n8BLuLsW+b20F85A9GiW4vGYZAgWLwmY58oqV7wmMlG9ZCUPep2T5in1yCaIkhtrh5Y3jaSYDDqytsogxuYA4y7UsNfNXLhNI3YS2mZDM7qyRSMpEmH3FVwd7EeFBAaBsufureHGecmiQjrDOAfLNPD4QF5s2EUf4ydfYis3vApd8lur050pbNJBMiRl5CzxSKvoo2N7ADOSKtvL/ABTSyWkcUUsioszNsRuwBYoBnZBwcKfbQJiujeR+2MOhkfpfn5d3azBf3VFIA6FuvyW4/Yy/y11Lqdo/mLC1hYb0giVh+dsDa880HJUR9EdwppfB9tg19PIeKW+AP7yRd/hzfnUBrtye3VhK+xE8ttkmORAWwp3hZAMlSBuydx6+iqlb3zxNmOVomwQSjsjYPEEqQcdlFWflT0gJ9K3TA5VWWIEf+koU/vbVaOo2jDc6QtYcZBlVm/Rj/CNnswuPGtLRGhLm7bZt4JJSelVOz4sfRHiaffJdyd/c7M87B7l12cL6sSnBKqflMSBluwAdOSK58Im83WcPWZpD9EKg/jPspL00eXSOabSCKkMrpHAoBWN2G0zMx3gEcNml0NDXLeiLefLbv6qTp3fNoq48oGjOa0doZsYzbvnvk5uXh9JqoLDII66e/LlohviFoIkZ+alVMIpYheZcZ9EEgeiB40lPuZP+Tz/spP5aI6Vt9L7eho7j5T20f67oqn2MTW7qLac3aIemQl/A7h+6BS/1ZllfQlrblHD8+8WGRgQodmXcRuA2l39lNy2hCIqLwVQo7gMCs8RyzTPpH8tkzx0sV/utv+0OT9dZ+d0heOeJuJxw6Ecovkoq0chNqG0qGwPwcEzjvLRp7nNZ+VPk/uYLma6gjaW3ldpDsAs0bOdpgyjfs7RJBAwM4OMUu7e9eF9qOV4nGRlHZHGeIypBHdWhjXXlpuFfS0uyQdiOFGx84KSR3gMKruqNkZ761iAztTxZ7lYO37qmtCztZbh8RJJM7HfsBnYknJJxneTvyadnJJyby2snxy8AWUKRFFkEptDBdyNwbGVAHAMc7zgA2aKKKAooooCsV1AJEZDwIxWWigX8sZUlTxBIPhXmrLpXQjSSF0KgEDOc8eHQK0/6Ny/OT2t9lBDUVM/0bl+cntb7KP6Ny/OT2t9lBDVc7cCe2APy0Kn2FTUL/RuX5ye1vsqb0PaNFHsMQd5Ixnge/tosTtO5RtlD+cp81P2inLbSh0VxwZQ3tGaomldT7h5pGTY2WdmGWwfSOertq46Ct3jt40kxtquycHI3bhv7sVi0tLUtaJh9X2jlx5aUtWev3b9FFFbXyRRRRQFFFFAUUUUBRRRQFYHs4zvMaHtKj7Kz1F60Xwgs7mY/2cMreIQkedAo35cpFJEdlEUBOyedYZXO442N2Rvr4eXWf8ij/bN/JSiQYAHYK+0HV1vrIPuaukJFCg2wnZQcgZj29kHp6qVn39Z/yKL9q38lbWvGluZ1csIQfSuIrVT+gkSyN5hR9Kk1QNwcuk53fEY8nd/XN0/Qp1y3ASMvIVQKu0xJwqgDJyT0Drrk/VGz56+tIvnTxZ7lYMfJTTU+EDp5lWCyQ4WQNLLjpVSAinsJycfmig9ayctyKxSyg50A452UlUPaqj0iO/Zqsjlp0lnOxbY6ubf385S5CkkAbySAO0ncPOmFyp6lW2jYbTmi5lk2xIWbIfZVSWA4L6R4Ddg0F51J5X47qVYLqIQSOQqOrZiZjuCnO9CTwzkdtS/KhrNHo2OGT4rFO8rlcPgYCrknOyeweNc1udx347eqn5rrqVeaXhsJFkijKQAuH2smSVYy2NkH5tBXoeW90GF0fEo7JSPdHWT7+035DH+3b/Tpea36tSaOuPi8ro77CuSmcAMWAByBv9HPiKiLeEu6ou9nZVHexCjzNFNluXiUDPxFP27f6dNi51git7Rbq6ZYQURmGScMyg7C7suc7gAMnFJuPkQvdobU9uVyM75OGd/yeqo7lp0809+1uD+BtQEVRw2yoLMe3eF7Nk9Zoiw6a5cn2iLS1UL0PMSSfopw/WqLg5bb8HLQ27DqCuvntn3VStUNDfHb23tiSolfDEcQqqztjPTsqakuUzQMFjftb25bYEcbYY7RVmzkZ4kYAO/roHdqDyiwaTzHsmG4UbRjY5DAcTG3ygM8CAeytvlE1v8AuXbpMIhKzyiMKW2eKuxOcHhs9XTXPOos7x6Rs2T1ufiXwdthv3WNMn4RN5/4OHtlkPgFQfxGgx/f2f8AIV/bn/TrJHy7fOsfZN9qUmHbAJ6quuvmof3Ngtpue5zntzIVAKtsbZ2SDvXiOvhRTV1V5XbS7lWF0e3dyFQuVKMx4LtDgT0ZAzwpgXE6xqzuwVVBLMTgADeSSeArjV2IGRuI3g9RG8H208+XTTbJY21uDg3BDSdqRqpI7i7KfCiPGsXLfGjFLODngN3OyEoh7VUDaI79mq6OW6/znmbbHVsye/bpZqpJAHEkAd5OB50wuUzUSDRltaskkjTSMVkLEbLYTaJUAejg4A7Dvyd9FXbVPlmhnkWK7i+LsxCiRW2osncA2QGTJ6d46yKalcYS+qe4+6ux9HAiKMNx2Ez37IzRGxRRRQFFFFAUUUUBRRRQFFFFAVSeWS85rRNx1yc3H+u6g+Wau1Kj4Q15i0tos+vOWx2RxsPe4oESTWe9tjE7Rt6y7Oe8qG+uvNtbGV0iHGR0Qd7sF+up3lFUDSl4BwEuB3BEH1UVsa86V51NHwg5W3sbYcflyxozeQQVXby1MewG4tGknhINpfauD4160dZNcTRQL60rpGOzaIXPgN/hUnrzKraQugnqJIYUHQFgAhAHZ6FBNcjNnzmloT0RrLJ7E2B5yV95Z73ndLTDO6NIo/Yu2fN6n/g82Wbq6mx6kKRg/wB4+0f8IUvtbbznr67lznanmx3Byq+QFBk1Ks+e0haR9DTxk9yNtnyWrz8IO82ry3iz/Vwsx75H/wDzqG5FLPnNLREj+qjmk8dkR/8AMrBywXnO6WuOqPm4x9FAT5saIp8UJkZUHF2VB3sQo99djW8QRVUcFAHsGK5V1Bs+e0lZxkZBmRj3R5k/yV1caDmHlavOd0tdHoQpGPoRrn94mtHk8s+e0nZpjI55WPdGDJ/kqM07dc9dXEuc85PM+expGI8jVz5C7Tb0oG/FQyv4kpGPJzRXRZNcg6cvOeubibOecmmfwaRiPDBFdWaz3vMWdxNnGxDK2e0ISK5EjGAB2CiGLyEWm3pMvjdHBK3cWZEHkx9hqC5TbzntK3jZyBJzY/4SrGfNTV9+DzagfHZz0c1HnuDOfeKUekbrnZpZfxkkkn67s310VYuS215zS1mOp2c9gSN23+IHtqb5d7zb0mE/FQxr3FyznyK1k5A7Pb0i8nRHbv7XdAPIN7KrXKRec9pS8cHIEpQf8ICP3oaIgrELzse2dlNtNs4Jwm0No4G84GavvLFrjBfyQR2rF4oQ5LFWUF22RuDAHcF44+VVN1d0JLe3CW0GzzjhiNokKAqliWIBxwxw4kVh0to2S2mkgmAEkbbLAHIzgEYPSCCD40VtaqaIa8vILdBnbkXa7I1ILk9QCg+VMX4Q9uwns3x6HNyoD0bQZTj2e49Vb3IdrLE8j2htYYZdjbEsS4MgUgESZJO0Mg5zg79w6WbrTq5BpCAwTqSpOVYbmRhnDIegjPcQSDuNEclKxBBBwQQQeojeKdOg9ctG6XEMGlYlWdMhGZmWJ2bAOyVYbDHA9FvAmqDrvqDdaNYsw523z6M6jdv4CQf2Z8j0HoqpkUV08vJjokEEWa7sH15ej6dW8UluRDXWV5fufO5ddhmhZjll2N5QniRjJGd4wRwxh00QUUUUBRRRQFFFFAUUUUBRRRQFIj4Qt3tXdtFn+rhdiOrnHA/5VPeuZ+WS853S0/VGsUfsQMfNzQR3Jxac7pSzTo50Oe6NWk/y185Rv/NL3++b+FasPIRabeky+N0UEreLMiDyY+yq5yif+aXv9+3uWgneRTRok0gZmHoWsTyk9AYjYXyLn6NUWe4MjtIeLsznvdix99N3UK2+J6v395jDzLLsk/NRTEnhtlj40nlGN1FPHkKh5nR93cn5UjeyGIfWWpGoxIyeJ3nvO+ukuS3RI+4kUZ3c+kzE/wB8z4/dI9lc7aQ0dJbSvBMpWSMlWBz0bsjPFTxB6QQaIafweLPNxdzY9SOOMH+8Ysf8MeylrrJd89eXMuc7c8zDuMjY8sVJ6qa6XOjo544BH+HAyzAlkIBAK4IHBunO/HjW0XgoBJOAAN5J4AAdJopg8hllzmlA+MiGGV89RbZjHjh29hp96xXogtbiYnHNxSP+qhNU3kb1Oext3mnGzPPskoeMca52VP5xJJPVkDorf5YbzmtE3PW4SMfTdQfLNEcyxjAA7BTj+DtZ+neTdQijHjtOf8tJ2ug+QOz2NHNJ+NnkPggWP/IaKluWK65vRFz+eI4/15FB8s1zNXUPKjoWS80bPFEC0g2JFUcWMbB9kdpAIHbiuXqIdvJwwtdXru54FvjT57VXmlx4pSRQYAFWX+mdx9zRowKgh2iS4ztsDIZdk78Y2jxxw3dtQdhZSTyLDCjSSOcKqjJP2AcSTuA3minF8Hy0Cw3lyRxZIweyNS5/xKTd5c87JJL+Md3/AF2LfXXRUeiRojQU0eQXSCZ3YcDLIDnHDcCQo7AK5vUYGKIZnIDZ7ekJZOiOBvbI6AeStVN12vOe0jeSdc8oHcjGMeSimZyCRiO2v7o8AVXPZFGZD/HSaaUuS54sSx72OT5mimZyAWm1pCWTG6OAjxkdAPJTUVp/lG0l8auBHdukYmmCKFiwqLIwUb1J4AdNXX4O9n+Cu5scZI4wf0E2z/iClNrRo17a8uIZFKssshGelWcsrDrBBBzRDW5HNPXmkJ7lLuczwpCAUdY9ktI2N+FGdyMMcN9K7XOwjt7+6hhGI45WVR80bjsjsBJHhW9qTrvPovnuZjjfnQoO3teiV2sEbJ3+scju3iq9eXTSyPLI2Xdmdm62YliezeaKuHIzbl9L25H9ms7nu5po/fIK6XpPcgmrLoJb6VSokURw5G9kyGZx2EhQD07J6DThogooooCiiigKKKKAooooCiiigKq+kOT3Rs8rzS2qvI5LMxeTJJ7mxVoooITV/VKzsWdrWARM4AYhnOQDkesx660tIcnmjZ5XmltVaR2LM23IMk9O5sVaKKCKl1ctWtRZGIfFgqrzeWA2VIIGQdriOuoT71+ifyNf15f56uFFBr2FmkESQxLsxxqqIu84VRgDfvO4dNResmqNnfgfGYVdhuVxlXXuZSDjs4VOUUC2PIpo7azt3OPm84uPbsbXnVl1c1EsLE7cEAEn4xyXfwLE7PhirJRQFRuntBQXsXM3Kc5HtBtnaZd4zjOyQTx4VJUUFM+9Xon8kH7SX+erLoXRMNpCsECbES7WyuScbTFjvYkneSa3qKAqpax8nGj71zJJDsSNvMkTFGY9bY9Fj2kGrbRQLODkR0epy0t04+aZIwP3IwfOrnq9qtaWKkW0Cx54tvLt+kzZY+2pmig0tM6Kiu4XgnXajfG0uSM4IYb1IPECqr96fRP5Mf2sv89XeighNF6qWttbSWsMZSGTb2123JO2oVvSJ2huGONQX3ptE/kx/ay/zVeKKCL1d1ft7GIw2ybCFi5G0zekQATliT0CsOsmqtpfqFuYQ5HqtvV1/RZcEd3CpqigV83IfYE5We6UfNDxHHcTGT7c1NaD5LNG2zBxCZnGCGmbbwR07OAmfo1dqKD4BivtFFAUUUUH/9k=" alt="Nick Motors Logo">
+                <div class="logo-text">NICK <span>MOTORS</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="Vehicles.html">Home</a></li>
+                    <li><a href="inventory.html">Inventory</a></li>
+                    <li><a href="how to buy.html">How to Buy</a></li>
+                    <li><a href="payment method.html">Payment</a></li>
+                    <li><a href="shipping.html">Shipping</a></li>
+                    <li><a href="About us.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>How to Buy Your Japanese Vehicle</h1>
+            <p>Our simple 5-step process makes importing vehicles from Japan easy and stress-free</p>
+            <a href="inventory.html" class="cta-button">Browse Available Vehicles</a>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Simple 5-Step Process</h2>
+                <p>From selection to delivery, we guide you through every step</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Choose Your Vehicle</h3>
+                    <p>Browse our extensive inventory of quality Japanese vehicles. Use our filters to find your perfect match.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Place Your Order</h3>
+                    <p>Reserve your vehicle with a deposit. We'll provide all vehicle details and inspection reports.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Complete Payment</h3>
+                    <p>Choose your preferred payment method. We accept bank transfers, letters of credit, and more.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Vehicle Preparation</h3>
+                    <p>We handle all export documentation, compliance checks, and professional cleaning.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Shipping & Delivery</h3>
+                    <p>Your vehicle is shipped via secure transport. We provide tracking and handle customs clearance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Buy From Tokaidō Motors?</h2>
+                <p>The advantages of importing your vehicle through us</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Verified Quality</h3>
+                    <p>Every vehicle undergoes a 150-point inspection and comes with a complete condition report.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-yen-sign"></i>
+                    </div>
+                    <h3>Competitive Pricing</h3>
+                    <p>Direct access to Japanese auctions means we offer the best prices in the market.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Global Shipping</h3>
+                    <p>We handle all logistics to deliver your vehicle safely to your country.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Dedicated Support</h3>
+                    <p>Our multilingual team provides personalized service throughout the process.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Transparent Process</h3>
+                    <p>No hidden fees. We provide all documentation and clear cost breakdowns.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Full History Reports</h3>
+                    <p>Get complete auction sheets and service history for every vehicle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from buyers who successfully imported through us</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        <p>The entire process was smoother than buying locally! Tokaidō Motors handled everything from inspection to delivery. My Land Cruiser arrived in perfect condition.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Wilson">
+                        </div>
+                        <div class="author-info">
+                            <h4>James Wilson</h4>
+                            <p>Kenya • 2023 Toyota Land Cruiser</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        <p>I was nervous about importing my first car from Japan, but the team walked me through each step. The car was exactly as described and arrived ahead of schedule.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Australia • 2020 Honda CR-V</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        <p>Saved over 30% compared to local dealers for the same model with lower mileage. The detailed inspection report gave me complete confidence in my purchase.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Mohammed Al-Farsi">
+                        </div>
+                        <div class="author-info">
+                            <h4>Mohammed Al-Farsi</h4>
+                            <p>UAE • 2019 Nissan Patrol</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Find Your Perfect Vehicle?</h2>
+            <p>Browse our current inventory of quality Japanese vehicles available for immediate export.</p>
+            <a href="inventory.html" class="cta-button">View Inventory Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Tokaidō Motors</h3>
+                    <p>Exporting quality Japanese vehicles worldwide with transparency and reliability.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="Vehicles.html">Home</a></li>
+                        <li><a href="inventory.html">Inventory</a></li>
+                        <li><a href="how to buy.html">How to Buy</a></li>
+                        <li><a href="payment method.html">Payment Methods</a></li>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
+                        <li><i class="fas fa-phone"></i> +254114963959</li>
+                        <li><i class="fas fa-envelope"></i> info@Nickmotors.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM (JST)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>Developed by Nickson Jame</p>
+                <p>&copy; 2025 Nick Motors. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
