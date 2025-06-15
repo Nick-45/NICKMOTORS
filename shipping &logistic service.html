@@ -1,0 +1,594 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping & Logistics | Nick Motors</title>
+    <!-- Same header content as above -->
+    
+      
+    <style>
+        :root {
+            --primary: #1a5f7a;
+            --secondary: #000000;
+            --accent: #f8f1e5;
+            --text: #333333;
+            --light: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        /* Service Hero */
+        .service-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 60px;
+        }
+        
+        .service-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .service-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Service Detail */
+        .service-detail {
+            padding: 60px 0;
+        }
+        
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .service-text h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-text p {
+            margin-bottom: 20px;
+        }
+        
+        .service-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .benefits {
+            background-color: var(--accent);
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-btn {
+            background-color: white;
+            color: var(--primary);
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--light);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: var(--light);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--light);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .service-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+        
+        /* Additional specific styles */
+        .inspection-types {
+            margin: 60px 0;
+        }
+        
+        .inspection-type {
+            margin-bottom: 40px;
+        }
+        
+        .inspection-type h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .checklist {
+            background-color: var(--accent);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .checklist h4 {
+            margin-bottom: 15px;
+        }
+        
+        .checklist ul {
+            columns: 2;
+        }
+        
+        @media (max-width: 768px) {
+            .checklist ul {
+                columns: 1;
+            }
+        }
+    
+        
+        
+        .shipping-methods {
+            margin: 60px 0;
+        }
+        
+        .method-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .method-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .method-content {
+            padding: 20px;
+        }
+        
+        .method-content ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .documents-list {
+            columns: 2;
+        }
+        
+        @media (max-width: 768px) {
+            .documents-list {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header same as above -->
+
+    <!-- Service Hero -->
+    <section class="service-hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')">
+        <div class="container">
+            <h1>Shipping & Logistics Service</h1>
+            <p>Comprehensive international shipping solutions tailored to your needs and budget.</p>
+        </div>
+    </section>
+
+    <!-- Service Detail -->
+    <section class="service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>Global Vehicle Shipping</h2>
+                    <p>At Nick Motors, we handle all aspects of international vehicle shipping, making the process seamless and stress-free for our clients. With years of experience and established relationships with major shipping lines, we can offer competitive rates and reliable service to virtually any destination worldwide.</p>
+                    <p>Our logistics team manages every detail from port to port, including customs documentation, insurance, and tracking. We keep you informed at every stage of the shipping process so you always know where your vehicle is and when to expect delivery.</p>
+                    <p>Whether you're importing a single vehicle or managing a fleet shipment, we have the expertise to ensure your vehicles arrive safely and on time.</p>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Car shipping">
+                </div>
+            </div>
+            
+            <div class="shipping-methods">
+                <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary);">Shipping Methods</h2>
+                
+                <div class="method-card">
+                    <div class="method-header">
+                        <h3>Container Shipping</h3>
+                    </div>
+                    <div class="method-content">
+                        <p><strong>Best for:</strong> High-value vehicles, luxury cars, classic/collector vehicles</p>
+                        <p>Your vehicle is secured in a 20ft or 40ft steel container, providing maximum protection from the elements and potential damage during transit.</p>
+                        <ul>
+                            <li>20ft container: 1-2 vehicles</li>
+                            <li>40ft container: 2-4 vehicles</li>
+                            <li>Complete protection from weather and sea spray</li>
+                            <li>Reduced risk of damage during handling</li>
+                            <li>Private, secure storage during transit</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-header">
+                        <h3>Roll-on/Roll-off (RoRo)</h3>
+                    </div>
+                    <div class="method-content">
+                        <p><strong>Best for:</strong> Standard vehicles, budget-conscious shipments</p>
+                        <p>Your vehicle is driven onto specialized car carrier ships and secured for ocean transit. The most economical way to ship vehicles internationally.</p>
+                        <ul>
+                            <li>Most cost-effective shipping method</li>
+                            <li>Frequent departures to major ports worldwide</li>
+                            <li>Suitable for drivable vehicles</li>
+                            <li>Basic insurance included</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-header">
+                        <h3>Air Freight</h3>
+                    </div>
+                    <div class="method-content">
+                        <p><strong>Best for:</strong> Urgent shipments, high-value vehicles where speed is essential</p>
+                        <p>The fastest way to get your vehicle overseas, with transit times measured in days rather than weeks.</p>
+                        <ul>
+                            <li>Fastest international delivery (3-7 days)</li>
+                            <li>Highest level of security and handling</li>
+                            <li>Ideal for time-sensitive shipments</li>
+                            <li>Available to most international airports</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-text">
+                <h2>Our Shipping Process</h2>
+                <ol>
+                    <li><strong>Documentation Preparation:</strong> We handle all export/import paperwork including Bill of Lading, Commercial Invoice, and Certificate of Origin.</li>
+                    <li><strong>Customs Clearance:</strong> Our agents process all necessary customs documentation for smooth export from Japan and import to your country.</li>
+                    <li><strong>Vehicle Preparation:</strong> We prepare your vehicle for shipping according to international standards (battery disconnection, fuel levels, etc.).</li>
+                    <li><strong>Loading & Shipping:</strong> Your vehicle is loaded using proper equipment and procedures to prevent damage during transit.</li>
+                    <li><strong>Tracking & Updates:</strong> We provide regular updates and vessel tracking information throughout the shipping process.</li>
+                    <li><strong>Arrival & Delivery:</strong> We coordinate with port agents to clear customs and arrange final delivery to your specified location.</li>
+                </ol>
+                
+                <div class="checklist" style="margin-top: 40px;">
+                    <h4>Required Documents (We Handle These For You):</h4>
+                    <ul class="documents-list">
+                        <li>Original Title/Certificate of Ownership</li>
+                        <li>Bill of Sale</li>
+                        <li>Bill of Lading</li>
+                        <li>Commercial Invoice</li>
+                        <li>Packing List</li>
+                        <li>Certificate of Origin</li>
+                        <li>Insurance Certificate</li>
+                        <li>Import Duty Documents</li>
+                        <li>Customs Declaration Forms</li>
+                        <li>Port Handling Documents</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary);">Why Choose Our Shipping Services</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Network</h3>
+                    <p>We ship to over 120 countries with reliable partners in each destination to handle customs and final delivery.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Full Insurance</h3>
+                    <p>All shipments include comprehensive marine insurance coverage for complete peace of mind.</p>
+                </div>
+                
+                <div class="benefit-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Transparent Tracking</h3>
+                <p>Real-time tracking updates so you always know where your vehicle is in the shipping process.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need to Ship a Vehicle?</h2>
+            <p>Get a free shipping quote tailored to your specific needs and destination.</p>
+            <a href="contact.html" class="cta-btn">Request Shipping Quote</a>
+        </div>
+    </section>
+
+      <!-- Footer -->
+      <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Nick Motors</h3>
+                    <p>Exporting quality vehicles worldwide with transparency and reliability since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="Vehicles.html">Home</a></li>
+                        <li><a href="inventory.html">Inventory</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="how to buy.html">How to Buy</a></li>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Vehicle Types</h3>
+                    <ul>
+                        <li><a href="#">SUVs</a></li>
+                        <li><a href="#">Sedans</a></li>
+                        <li><a href="#">Trucks</a></li>
+                        <li><a href="#">Vans</a></li>
+                        <li><a href="#">Hybrids</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
+                        <li><i class="fas fa-phone"></i> +254 114 963 959</li>
+                        <li><i class="fas fa-envelope"></i> info@nickmotors.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8AM-6PM (EAT)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>Developed by Nick</p>
+                <p>&copy; 2025 Nick Motors. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
